@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { assets, projectsData } from "../assets/assets";
+import { motion } from "framer-motion"
+
 
 const Projects = () => {
 
@@ -29,7 +31,11 @@ const prevProject =()=>{
 }
 
   return (
-    <div
+    <motion.div
+      initial={{opacity:0, x:-200}}
+      transition={{duration: 1}}
+      whileInView={{opacity:1, x:0}}
+      viewport={{once: true}}
       className="container mx-auto py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-hidden" id="Projects">
       <h1 className="text-2xl sm:text-4xl font-bold mb-2 text-center">
         Projects
@@ -83,7 +89,7 @@ const prevProject =()=>{
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
